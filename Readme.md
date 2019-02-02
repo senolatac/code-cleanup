@@ -15,4 +15,4 @@ Perspectives:
 * Bug fixes
 * Unit Tests
     
-Prerequisites: Any IDE(e.g Eclipse), Gradle , GIT, Java 8
+Prerequisites: Any IDE(e.g IDEA), Gradle , GIT, Java 8

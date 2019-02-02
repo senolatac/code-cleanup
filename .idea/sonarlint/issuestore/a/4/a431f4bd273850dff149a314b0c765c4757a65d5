@@ -1,0 +1,15 @@
+
+usquid:S001179"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(°ãëÖûÿÿÿÿ8÷¬ë¬Š-
+psquid:S00117:"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ø¤Öë8÷¬ë¬Š-
+psquid:S001170"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(àã×Ä8÷¬ë¬Š-
+^squid:UselessImportCheck".Remove this unused import 'java.util.EnumSet'.(ÍäÚ“úÿÿÿÿ8£Íæ¬Š-
+usquid:S00117A"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ç†Åßüÿÿÿÿ8õœé¬Š-
+psquid:S001176"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ê¸ÔÛ8ı¶‚­Š-
+osquid:S00117/"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(®©‚Y8Şñç¬Š-
+psquid:S00117B"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÖÀ ñ8õœé¬Š-
+csquid:UselessImportCheck"8Remove this unused import 'com.sha.model.SpecialtyType'.(ÔéÜ¤8£Íæ¬Š-
+psquid:S00117;"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(«òëÂ8æ¶…­Š-
+usquid:S00117@"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Òàşÿÿÿÿÿÿ8šºè¬Š-
+psquid:S001173"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÂÛ†8Ò ş¬Š-
+usquid:S001172"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(òõ¢ıÿÿÿÿ8º¯ò¬Š-
+psquid:S001171"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(—æ¯Ç8º¯ò¬Š-

@@ -36,6 +36,8 @@ public class ConditionalNestedClass {
             }else if(patient.getOperationCount()>5){
                 multiply *= 0.95;
             }
+        }else{
+            multiply = 0;
         }
         return value * multiply;
     }
