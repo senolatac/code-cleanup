@@ -1,14 +1,10 @@
 package com.sha.pattern;
 
-import com.sha.model.Doctor;
-import com.sha.model.Manager;
-import com.sha.model.SpecialtyType;
-import com.sha.model.TitleType;
+import com.sha.model.*;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.EnumSet;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -48,15 +44,15 @@ public class VisitorDesignPatternTest {
         Doctor doctor_0_0 = createDoctor(TitleType.PROF, "00");
         Doctor doctor_0_0_0 = createDoctor(TitleType.ASSOC, "000");
         Doctor doctor_0_0_0_0 = createDoctor(TitleType.DR, "0000");
-        Set<Doctor> members_0_0_0 = new HashSet<>();
+        Set<Person> members_0_0_0 = new HashSet<>();
         members_0_0_0.add(doctor_0_0_0_0);
         doctor_0_0_0.setMembers(members_0_0_0);
-        Set<Doctor> members_0_0 = new HashSet<>();
+        Set<Person> members_0_0 = new HashSet<>();
         members_0_0.add(doctor_0_0_0);
         doctor_0_0.setMembers(members_0_0);
         Doctor doctor_0_1 = createDoctor(TitleType.ASSOC, "01");
         Doctor doctor_0_2 = createDoctor(TitleType.DR, "02");
-        Set<Doctor> members_0 = new HashSet<>();
+        Set<Person> members_0 = new HashSet<>();
         members_0.add(doctor_0_0);
         members_0.add(doctor_0_1);
         members_0.add(doctor_0_2);
@@ -64,7 +60,7 @@ public class VisitorDesignPatternTest {
         Doctor doctor_1 = createDoctor(TitleType.ASSOC, "1");
         Doctor doctor_2 = createDoctor(TitleType.DR, "2");
         Doctor doctor_3 = createDoctor(TitleType.PROF, "3");
-        Set<Doctor> members = new HashSet<>();
+        Set<Person> members = new HashSet<>();
         members.add(doctor_0);
         members.add(doctor_1);
         members.add(doctor_2);

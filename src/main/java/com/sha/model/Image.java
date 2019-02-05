@@ -1,8 +1,8 @@
 package com.sha.model;
 
-import java.io.Serializable;
+import com.sha.util.FileUtil;
 
-public class Image implements Serializable {
+public class Image extends BaseModel implements IFileDirectory{
 
     private static final long serialVersionUID = 1L;
 
@@ -29,5 +29,15 @@ public class Image implements Serializable {
     }
     public void setHeight(int height) {
         this.height = height;
+    }
+
+    @Override
+    public boolean isFileExist(){
+        return FileUtil.isFileExist(filename);
+    }
+
+    @Override
+    public boolean isFile(){
+        return FileUtil.isFile(filename);
     }
 }

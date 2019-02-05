@@ -18,21 +18,26 @@ public class CommandDesignPattern {
         System.out.println("Operation is completed successfully.");
     }
 
-    public void save(Patient patient){
+    public void execute(Runnable runnable){
         preSet();
-        patientList.add(patient);
+        runnable.run();
         postSet();
+    }
+
+    public void save(Patient patient){
+        execute(new Runnable() {
+            @Override
+            public void run() {
+                patientList.add(patient);
+            }
+        });
     }
 
     public void delete(Patient patient){
-        preSet();
-        patientList.remove(patient);
-        postSet();
+        execute(()-> patientList.remove(patient));
     }
 
     public void update(Patient patient){
-        preSet();
-        patientList.set(patientList.indexOf(patient), patient);
-        postSet();
+        execute(()-> patientList.set(patientList.indexOf(patient), patient));
     }
 }

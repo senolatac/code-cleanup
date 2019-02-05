@@ -1,13 +1,15 @@
 package com.sha.model;
 
-import java.util.HashSet;
-import java.util.Set;
+import com.sha.pattern.IUnit;
+import com.sha.pattern.IVisitor;
 
-public class Doctor {
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+import java.util.*;
+
+public class Doctor extends Person implements IOccupation, IExperience, IUnit {
 
     private static final long serialVersionUID = 1L;
-
-    private Long id;
 
     private int version;
 
@@ -15,19 +17,23 @@ public class Doctor {
 
     private int reputation;
 
-    private String firstName;
-
-    private String lastName;
-
     private Integer graduationYear;
 
-    private Doctor boss;
+    private Person boss;
 
-    private Set<Doctor> members = new HashSet<>();
+    private Set<Person> members = new HashSet<>();
 
     private Set<SpecialtyType> specialties = new HashSet<>();
 
-    private Set<Operation> operations = new HashSet<>();
+    private Set<IModel> operations = new HashSet<>();
+
+    public Doctor(){
+        super();
+    }
+
+    public Doctor(final String firstName, final String lastName){
+        super(firstName, lastName);
+    }
 
     public Set<SpecialtyType> getSpecialties() {
         return specialties;
@@ -45,36 +51,12 @@ public class Doctor {
         this.graduationYear = graduationYear;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public int getVersion() {
         return version;
     }
 
     public void setVersion(int version) {
         this.version = version;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
     }
 
     public TitleType getTitle() {
@@ -93,15 +75,15 @@ public class Doctor {
         this.reputation = reputation;
     }
 
-    public Set<Operation> getOperations() {
+    public Set<IModel> getOperations() {
         return operations;
     }
 
-    public void setOperations(Set<Operation> operations) {
+    public void setOperations(Set<IModel> operations) {
         this.operations = operations;
     }
 
-    public Doctor getBoss() {
+    public Person getBoss() {
         return boss;
     }
 
@@ -109,11 +91,48 @@ public class Doctor {
         this.boss = boss;
     }
 
-    public Set<Doctor> getMembers() {
+    public Set<Person> getMembers() {
         return members;
     }
 
-    public void setMembers(Set<Doctor> members) {
+    public void setMembers(Set<Person> members) {
         this.members = members;
+    }
+
+    @Override
+    public String occupation() {
+        return "DR.";
+    }
+
+    @Override
+    public String currentTitle() {
+        return title.toString();
+    }
+
+    @Override
+    public Long yearOfExperience() {
+        return ChronoUnit.YEARS.between(LocalDate.of(graduationYear, 1,1),LocalDate.now());
+    }
+
+    @Override
+    public String profession() {
+        return specialties.isEmpty() ? null : specialties.iterator().next().toString();
+    }
+
+    @Override
+    public void accept(IVisitor visitor) {
+        visitor.visit(this);
+    }
+
+    @Override
+    public void acceptMembers(IVisitor visitor) {
+        List<Person> sortedList = new ArrayList<>(members);
+        Collections.sort(sortedList);
+        sortedList.forEach(member -> ((Doctor) member).accept(visitor));
+    }
+
+    @Override
+    public int compareTo(Person o) {
+        return this.getTitle().order().compareTo(((Doctor)o).getTitle().order());
     }
 }

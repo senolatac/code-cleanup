@@ -9,8 +9,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.EnumSet;
-import java.util.HashSet;
-import java.util.Set;
 
 public class ConditionalNestedClassTest {
 
@@ -26,7 +24,7 @@ public class ConditionalNestedClassTest {
         Doctor doctor = createDoctor(TitleType.DR, 100);
         Patient patient = createPatient(1);
 
-        double value = conditionalNestedClass.nestedMethod(doctor, patient);
+        double value = conditionalNestedClass.calculateFeeForDoctor(doctor, patient);
 
         Assert.assertEquals(101, value, 1);
     }
@@ -36,7 +34,7 @@ public class ConditionalNestedClassTest {
         Doctor doctor = createDoctor(TitleType.ASSOC, 200);
         Patient patient = createPatient(3);
 
-        double value = conditionalNestedClass.nestedMethod(doctor, patient);
+        double value = conditionalNestedClass.calculateFeeForDoctor(doctor, patient);
 
         Assert.assertEquals(150, value, 1);
     }
@@ -46,7 +44,7 @@ public class ConditionalNestedClassTest {
         Doctor doctor = createDoctor(TitleType.PROF, 200);
         Patient patient = createPatient(3);
 
-        double value = conditionalNestedClass.nestedMethod(doctor, patient);
+        double value = conditionalNestedClass.calculateFeeForDoctor(doctor, patient);
 
         Assert.assertEquals(200, value, 1);
     }
@@ -56,7 +54,7 @@ public class ConditionalNestedClassTest {
         Doctor doctor = createDoctor(TitleType.PROF, 501);
         Patient patient = createPatient(11);
 
-        double value = conditionalNestedClass.nestedMethod(doctor, patient);
+        double value = conditionalNestedClass.calculateFeeForDoctor(doctor, patient);
 
         Assert.assertEquals(270, value, 1);
     }
@@ -66,7 +64,7 @@ public class ConditionalNestedClassTest {
         Doctor doctor = createDoctor(TitleType.PROF, 1001);
         Patient patient = createPatient(6);
 
-        double value = conditionalNestedClass.nestedMethod(doctor, patient);
+        double value = conditionalNestedClass.calculateFeeForDoctor(doctor, patient);
 
         Assert.assertEquals(380, value, 1);
     }

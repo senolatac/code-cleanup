@@ -1,9 +1,6 @@
 package com.sha.conditional;
 
-import com.sha.model.Doctor;
-import com.sha.model.Operation;
-import com.sha.model.SpecialtyType;
-import com.sha.model.TitleType;
+import com.sha.model.*;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -27,7 +24,7 @@ public class ConditionalLoopClassTest {
         for (int i = 0; i < 30; i++) {
             doctorList.add(createDoctor(titleTypes[i % titleTypes.length], 100, specialtyTypes[i % specialtyTypes.length], i));
         }
-        Doctor doctor = conditionalLoopClass.findBestSafeDoctor(doctorList, SpecialtyType.HEART, TitleType.DR);
+        Doctor doctor = conditionalLoopClass.findMostTrustedDoctor(doctorList, SpecialtyType.HEART, TitleType.DR);
         Assert.assertEquals("Test Doctor 21" , doctor.getFirstName());
     }
 
@@ -43,8 +40,8 @@ public class ConditionalLoopClassTest {
         return doctor;
     }
 
-    private Set<Operation> createOperation(int count) {
-        Set<Operation> operations = new HashSet<>();
+    private Set<IModel> createOperation(int count) {
+        Set<IModel> operations = new HashSet<>();
         for (int i = 0; i < count; i++) {
             Operation operation = new Operation();
             operation.setSucceed(count%6==0?false:true);

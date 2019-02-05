@@ -2,19 +2,10 @@ package com.sha.model;
 
 import java.util.Date;
 
-public class Operation {
+public class Operation extends BaseModel implements IModel {
 
-    private int id;
     private Date operationDate;
     private boolean succeed;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public Date getOperationDate() {
         return operationDate;
